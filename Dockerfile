@@ -20,5 +20,6 @@ USER $USER
 #RUN apk add --no-cache curl
 COPY --from=builder /home/app/target ./home/app
 WORKDIR /home/app
-ENTRYPOINT ["java", "-jar", "spring-boot-demo.jar"]
+ENTRYPOINT ["java", "-jar", "spring-boot-demo-0.0.1-SNAPSHOT.jar"]
+
 
