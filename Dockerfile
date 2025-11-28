@@ -15,9 +15,10 @@ ENV GROUPNAME=$USER
 ENV UID=500
 ENV GID=500
 RUN addgroup -S spring && adduser -S spring -G spring
+USER $USER
 #RUN addgroup --gid "$GID" "$GROUPNAME" &&  adduser -D -h /home/app -G $USER -u $UID $USER
 #RUN apk add --no-cache curl
 COPY --from=builder /home/app/target ./home/app
 WORKDIR /home/app
-USER $USER
 ENTRYPOINT ["java", "-jar", "spring-boot-demo.jar"]
+
